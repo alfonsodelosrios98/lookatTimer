@@ -1,0 +1,23 @@
+@import "base/variables";
+@import "components/navigation";
+
+$space-vertical: 20px;
+$title-color: #262726;
+$title-highlight-color: #931C0A;
+$body-color: #8C8C8C;
+
+.inner-section {
+  padding: $space-vertical 15px;
+  margin-top: $space-vertical;
+}
+
+input[type=search] {
+  box-shadow: none;
+}
+p {
+  color: $body-color;
+}
+h1 {
+  color: $title-color;
+  font-weight: bold;
+}

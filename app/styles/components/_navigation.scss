@@ -1,0 +1,19 @@
+.top-bar, .top-bar ul {
+  background-color: $dark-nav-background;
+}
+
+ul a {
+  color: #EAEDF5;
+  display: inline-block;
+}
+
+.top-bar {
+  .menu-text {
+    color: $dark-nav-text-color;
+  }
+
+  .menu > .menu-text > a {
+    display: inline;
+    padding: 0;
+  }
+}
