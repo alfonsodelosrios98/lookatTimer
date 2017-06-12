@@ -21,7 +21,6 @@ var Countdown = React.createClass({
             count: 0
           });
         case 'paused':
-          console.log('fuck');
           clearInterval(this.timer);
           this.timer = undefined;
           break;
@@ -34,6 +33,11 @@ var Countdown = React.createClass({
       this.setState({
         count: newCount >= 0 ? newCount : 0
       });
+      if(newCount === 0) {
+        this.setState({
+          countDownStatus: 'stopped'
+        })
+      }
     }, 1000)
   },
   handleSetCountdown: function(seconds) {
@@ -46,6 +50,11 @@ var Countdown = React.createClass({
     this.setState({
       countDownStatus: newStatus
     })
+  },
+  componentWillUnmount: function() {
+    console.log('Component exiting');
+    clearInterval(this.timer);
+    this.timer = undefined;
   },
   render: function(){
     var {count, countDownStatus} = this.state;
@@ -60,6 +69,7 @@ var Countdown = React.createClass({
 
     return(
       <div>
+        <h1 className="page-header">Countdown</h1>
         <Clock totalSeconds={count}></Clock>
         {renderControlArea()}
       </div>
