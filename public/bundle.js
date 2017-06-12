@@ -104,17 +104,24 @@
 	    hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(229);
+	var Timer = __webpack_require__(231);
+	var Countdown = __webpack_require__(232);
 
 	//Load foundation-sites
-	__webpack_require__(230);
+	__webpack_require__(233);
 	$(document).foundation();
 
-	__webpack_require__(234);
+	__webpack_require__(237);
 
 	ReactDOM.render(React.createElement(
 	  Router,
 	  { history: hashHistory },
-	  React.createElement(Route, { path: '/', component: Main })
+	  React.createElement(
+	    Route,
+	    { path: '/', component: Main },
+	    React.createElement(Route, { path: '/countdown', component: Countdown }),
+	    React.createElement(IndexRoute, { component: Timer })
+	  )
 	), document.getElementById('app'));
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
@@ -25481,7 +25488,7 @@
 	'use strict';
 
 	var React = __webpack_require__(8);
-	var Navigation = __webpack_require__(236);
+	var Navigation = __webpack_require__(230);
 
 	var Main = function Main(props) {
 	  return React.createElement(
@@ -25506,13 +25513,127 @@
 /* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var React = __webpack_require__(8);
+
+	var _require = __webpack_require__(166),
+	    Link = _require.Link,
+	    IndexLink = _require.IndexLink;
+
+	var Nav = function Nav() {
+	  return React.createElement(
+	    'div',
+	    { className: 'top-bar dark-nav' },
+	    React.createElement(
+	      'div',
+	      { className: 'top-bar-left' },
+	      React.createElement(
+	        'ul',
+	        { className: 'menu' },
+	        React.createElement(
+	          'li',
+	          { className: 'menu-text' },
+	          'lookat-Timer'
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement(
+	            IndexLink,
+	            { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	            'Timer'
+	          )
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement(
+	            Link,
+	            { to: '/countdown', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	            'Countdown'
+	          )
+	        )
+	      )
+	    ),
+	    React.createElement(
+	      'div',
+	      { className: 'top-bar-right' },
+	      React.createElement(
+	        'ul',
+	        { className: 'menu' },
+	        React.createElement(
+	          'li',
+	          { className: 'menu-text' },
+	          'Created by ',
+	          React.createElement(
+	            'a',
+	            { href: 'https://lookatapp.co', target: '_blank' },
+	            'Startup Technologies'
+	          )
+	        )
+	      )
+	    )
+	  );
+	};
+
+	module.exports = Nav;
+
+/***/ }),
+/* 231 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(8);
+
+	var Timer = React.createClass({
+	  displayName: 'Timer',
+
+	  render: function render() {
+	    return React.createElement(
+	      'p',
+	      null,
+	      'Timer'
+	    );
+	  }
+	});
+
+	module.exports = Timer;
+
+/***/ }),
+/* 232 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(8);
+
+	var Countdown = React.createClass({
+	  displayName: 'Countdown',
+
+	  render: function render() {
+	    return React.createElement(
+	      'p',
+	      null,
+	      'COUNTDOWN COMPONENT'
+	    );
+	  }
+	});
+
+	module.exports = Countdown;
+
+/***/ }),
+/* 233 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(231);
+	var content = __webpack_require__(234);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
+	var update = __webpack_require__(236)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -25529,10 +25650,10 @@
 	}
 
 /***/ }),
-/* 231 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(232)();
+	exports = module.exports = __webpack_require__(235)();
 	// imports
 
 
@@ -25543,7 +25664,7 @@
 
 
 /***/ }),
-/* 232 */
+/* 235 */
 /***/ (function(module, exports) {
 
 	/*
@@ -25599,7 +25720,7 @@
 
 
 /***/ }),
-/* 233 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
@@ -25851,16 +25972,16 @@
 
 
 /***/ }),
-/* 234 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(235);
+	var content = __webpack_require__(238);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(233)(content, {});
+	var update = __webpack_require__(236)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -25877,88 +25998,18 @@
 	}
 
 /***/ }),
-/* 235 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(232)();
+	exports = module.exports = __webpack_require__(235)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\nul a {\n  color: #EAEDF5;\n  display: inline-block; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .menu > .menu-text > a {\n  display: inline;\n  padding: 0; }\n\n.inner-section {\n  padding: 20px 15px;\n  margin-top: 20px; }\n\ninput[type=search] {\n  box-shadow: none; }\n\np {\n  color: #8C8C8C; }\n\nh1 {\n  color: #262726;\n  font-weight: bold; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\nul a {\n  color: #EAEDF5;\n  display: inline-block; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .menu > .menu-text > a {\n  display: inline;\n  padding: 0; }\n\n.top-bar .active-link {\n  font-weight: bold; }\n\n.inner-section {\n  padding: 20px 15px;\n  margin-top: 20px; }\n\ninput[type=search] {\n  box-shadow: none; }\n\np {\n  color: #8C8C8C; }\n\nh1 {\n  color: #262726;\n  font-weight: bold; }\n", ""]);
 
 	// exports
 
-
-/***/ }),
-/* 236 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(8);
-
-	var _require = __webpack_require__(166),
-	    Link = _require.Link,
-	    IndexLink = _require.IndexLink;
-
-	var Nav = function Nav() {
-	  return React.createElement(
-	    'div',
-	    { className: 'top-bar dark-nav' },
-	    React.createElement(
-	      'div',
-	      { className: 'top-bar-left' },
-	      React.createElement(
-	        'ul',
-	        { className: 'menu' },
-	        React.createElement(
-	          'li',
-	          { className: 'menu-text' },
-	          'lookat-Timer'
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          React.createElement(
-	            IndexLink,
-	            { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	            'Timer'
-	          )
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          React.createElement(
-	            Link,
-	            { to: '/countdown', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	            'Countdown'
-	          )
-	        )
-	      )
-	    ),
-	    React.createElement(
-	      'div',
-	      { className: 'top-bar-right' },
-	      React.createElement(
-	        'ul',
-	        { className: 'menu' },
-	        React.createElement(
-	          'li',
-	          { className: 'menu-text' },
-	          'Created by ',
-	          React.createElement(
-	            'a',
-	            { href: 'https://lookatapp.co', target: '_blank' },
-	            'Startup Technologies'
-	          )
-	        )
-	      )
-	    )
-	  );
-	};
-
-	module.exports = Nav;
 
 /***/ })
 /******/ ]);
